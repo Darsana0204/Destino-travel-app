@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destino Trip Planner</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Destino</h1>
+    <nav>
+      <a href="#">Explore</a>
+      <a href="#">Saved Places</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Plan Your Trip</h2>
+
+      <form>
+        <label for="place">Destination</label>
+        <input id="place" name="place" type="text"
+          placeholder="Where do you want to go?">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email">
+
+        <label for="date">Travel date</label>
+        <input id="date" name="date" type="date">
+
+        <label for="people">Travellers</label>
+        <select id="people" name="people">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+
+        <button type="submit">Search Trips</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Popular Destinations</h2>
+
+      <table>
+        <tr>
+          <th>Place</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Bali</td>
+          <td>Indonesia</td>
+        </tr>
+        <tr>
+          <td>Paris</td>
+          <td>France</td>
+        </tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Destino</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,702 @@
+
+:root {
+  --green-900: #291B35;
+  --green-700: #68466F;
+  --green-600: #896392;
+  --green-200: #DCC9E5;
+  --green-100: #49464b;
+
+  --sand: #c6946e;
+  --ink: #352B38;
+  --muted: #7e3590;
+  --surface: #dba585;
+  --border: #a75a36;
+
+  --accent: #E99B79;
+  --accent-light: #c16f49;
+
+  --glass: rgba(255, 246, 239, 0.85);
+
+  --shadow:
+    0 12px 35px rgba(65, 39, 70, 0.10);
+
+  --shadow-hover:
+    0 20px 45px rgba(65, 39, 70, 0.18);
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+
+/* ==================================================
+   2. GLOBAL RESET
+================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--sand);
+  color: var(--ink);
+
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+
+  overflow-x: hidden;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background: var(--green-200);
+  color: var(--green-900);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+
+/* ==================================================
+   3. NAVIGATION BAR
+================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 7%;
+
+  background: var(--glass);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--border);
+
+  transition:
+    padding 0.3s ease,
+    background 0.3s ease;
+}
+
+.logo {
+  color: var(--green-700);
+
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  position: relative;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--green-700);
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--accent);
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* ==================================================
+   4. HERO SECTION
+================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: 115px 7% 105px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(233, 155, 121, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #c68b66
+    );
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0 auto 22px;
+
+  color: var(--green-900);
+
+  font-size: clamp(38px, 6vw, 76px);
+  font-weight: 800;
+
+  animation: fadeIn 0.8s ease both;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 32px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+
+  animation: fadeIn 0.8s 0.15s ease both;
+}
+
+.hero .btn {
+  animation: fadeIn 0.8s 0.3s ease both;
+}
+
+
+/* ==================================================
+   5. BUTTONS
+================================================== */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: var(--green-700);
+  color: #FFFFFF;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(104, 70, 111, 0.18);
+
+  transition:
+    transform 0.3s var(--ease),
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--green-900);
+
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+
+/* ==================================================
+   6. COMMON SECTION STYLES
+================================================== */
+
+section {
+  padding: 75px 7%;
+}
+
+.section-title {
+  margin-bottom: 35px;
+
+  color: var(--green-900);
+
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 800;
+}
+
+
+/* ==================================================
+   7. CATEGORY SECTION
+================================================== */
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.category {
+  padding: 13px 24px;
+
+  border: 1px solid var(--border);
+  border-radius: 50px;
+
+  background: var(--surface);
+  color: var(--green-700);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.category:hover,
+.category.active {
+  background: var(--green-700);
+  color: #FFFFFF;
+
+  border-color: var(--green-700);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 18px rgba(104, 70, 111, 0.15);
+}
+
+
+/* ==================================================
+   8. DESTINATION SECTION
+================================================== */
+
+.destination-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+.destination-card {
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-9px);
+
+  box-shadow: var(--shadow-hover);
+}
+
+
+/* ==================================================
+   9. DESTINATION IMAGES
+================================================== */
+
+.image-container {
+  position: relative;
+
+  overflow: hidden;
+
+  height: 230px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s var(--ease);
+}
+
+.destination-card:hover .image-container img {
+  transform: scale(1.08);
+}
+
+
+/* ==================================================
+   10. DESTINATION INFORMATION
+================================================== */
+
+.destination-info {
+  padding: 22px;
+}
+
+.destination-info h3 {
+  margin-bottom: 8px;
+
+  color: var(--green-900);
+
+  font-size: 21px;
+}
+
+.destination-info p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* ==================================================
+   11. SAVE BUTTON
+================================================== */
+
+.save-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--green-700);
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.save-button:hover {
+  transform: scale(1.12);
+}
+
+.save-button.saved {
+  background: var(--green-700);
+  color: #FFFFFF;
+
+  animation: pop 0.3s ease;
+}
+
+
+/* ==================================================
+   12. GALLERY SECTION
+================================================== */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.gallery-card {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 220px;
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s var(--ease);
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+
+/* ==================================================
+   13. FOOTER
+================================================== */
+
+footer {
+  padding: 45px 7%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5c4a30,
+      #8e583e
+    );
+
+  color: #FFFFFF;
+
+  text-align: center;
+}
+
+footer p {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+
+/* ==================================================
+   14. ANIMATIONS
+================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+/* ==================================================
+   15. TABLET RESPONSIVENESS
+================================================== */
+
+@media (max-width: 900px) {
+  .destination-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    padding: 90px 6%;
+  }
+}
+
+
+/* ==================================================
+   16. MOBILE RESPONSIVENESS
+================================================== */
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+
+    padding: 16px 5%;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .hero {
+    padding: 75px 5%;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+
+  .destination-list,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-container {
+    height: 220px;
+  }
+
+  .categories {
+    gap: 10px;
+  }
+
+  .category {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .destination-info {
+    padding: 18px;
+  }
+}
+
+
+/* ==================================================
+   17. TOUCH DEVICE SUPPORT
+================================================== */
+
+@media (hover: none) {
+  .destination-card:hover {
+    transform: none;
+  }
+
+  .destination-card:hover .image-container img {
+    transform: none;
+  }
+}
+
+
+/* ==================================================
+   18. ACCESSIBILITY
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ==================================================
+   19. PRINT STYLES
+================================================== */
+
+@media print {
+  .navbar,
+  .btn,
+  .save-button {
+    display: none;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  section {
+    padding: 20px 0;
+  }
+}
